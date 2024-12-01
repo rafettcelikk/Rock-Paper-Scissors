@@ -1,0 +1,24 @@
+@startuml App
+title Rock-Paper-Scissors
+abstract class Player{
+    +getPlayerName():string
+    +makeMove():string
+}
+abstract class ComputerPlayer{
+    +getPlayerName():string
+}
+class RandomComputerPlayer{
+    +makeMove():string
+}
+class HumanPlayer{
+    +playerName:string
+    --
+    +HumanPlayer(playerName:string)
+    +getPlayerName():string
+    +makeMove():string
+}
+ComputerPlayer -up-|> Player : <<extends>>
+RandomComputerPlayer -up-|> ComputerPlayer : <<extends>>
+HumanPlayer -up-|> Player : <<extends>>
+hide empty members  
+@enduml
